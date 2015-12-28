@@ -24,7 +24,7 @@ function createSlimPreprocessor(config, logger) {
 
   if(typeof(config.slimrbOption) === 'string') {
     log.debug('Passing args to slim command (%s).', config.slimrbOption);
-    slimCommandArgs.concat(config.slimrbOption.split(' '));
+    slimCommandArgs = slimCommandArgs.concat(config.slimrbOption.split(' '));
   }
 
   return function(content, file, done) {
@@ -60,5 +60,3 @@ createSlimPreprocessor.$inject = ['config.slimPreprocessor', 'logger'];
 module.exports = {
   'preprocessor:slim': ['factory', createSlimPreprocessor]
 };
-
-
